@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      lang="pt-BR"
+      xml:lang="pt-BR"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html">
+
+<h:head>
+    <f:facet name="first">
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="widt=device-widh, initial-scale=1"/>
+    </f:facet>
+    <title>Layout fixo</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .menu {
+            width: 20%;
+            height: 100px;
+            float: left;
+            background-color: blue;
+        }
+
+        .advertisement {
+            width: 20%;
+            height: 100px;
+            float: left;
+            background-color: green;
+        }
+
+        .content {
+            width: 60%;
+            height: 200px;
+            float: left;
+            background-color: red;
+        }
+    </style>
+</h:head>
+<h:body>
+    <div class="menu"></div>
+    <div class="content"></div>
+    <div class="advertisement"></div>
+</h:body>
+</html>
