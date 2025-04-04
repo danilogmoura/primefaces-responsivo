@@ -1,0 +1,102 @@
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+    version="6.0">
+
+    <!--
+    Opções disponíveis para jakarta.faces.PROJECT_STAGE:
+
+    Development - Exibe mensagens de erro detalhadas na interface,
+                  mostra a stack trace diretamente na página de erro
+                  e habilita recursos adicionais para depuração.
+
+    Production  - Oculta detalhes da stack trace para segurança,
+                  melhora a performance desativando verificações extras
+                  e exibe mensagens de erro genéricas.
+
+    SystemTest  - Similar ao modo Production, mas pode ativar logs extras
+                  para testes de sistema.
+
+    UnitTest    - Utilizado para testes unitários, ajustando o comportamento
+                  interno para facilitar testes.
+    -->
+
+    <context-param>
+        <param-name>jakarta.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
+
+    <!--
+    Este parâmetro de contexto configura o Jakarta Faces (JSF) para usar o fuso horário padrão do sistema
+    para conversão de data e hora. Ao definir este parâmetro como true, todos os valores de data e hora
+    serão convertidos usando o fuso horário do sistema, garantindo consistência em toda a aplicação.
+    -->
+
+    <context-param>
+        <param-name>jakarta.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
+    <!--
+    Este parâmetro de contexto configura o Jakarta Faces (JSF) para validar campos vazios.
+    Ao definir este parâmetro como true, o JSF irá validar campos vazios, garantindo que
+    os campos obrigatórios não sejam deixados em branco.
+    -->
+
+    <context-param>
+        <param-name>jakarta.faces.VALIDATE_EMPTY_FIELDS</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
+    <!--
+    Desativa a varredura de bibliotecas de tags (TLDs) pelo JSF. Isso pode melhorar o tempo de inicialização da aplicação,
+    mas pode causar problemas se a aplicação depender de TLDs que não são explicitamente referenciadas.
+    -->
+
+    <context-param>
+        <param-name>com.sun.faces.enableTLDScan</param-name>
+        <param-value>false</param-value>
+    </context-param>
+
+    <!--
+    Define o período de atualização dos arquivos Facelets em segundos. Um valor de 1 segundo é útil durante o desenvolvimento
+    para ver rapidamente as mudanças feitas nos arquivos Facelets sem precisar reiniciar o servidor.
+    -->
+
+    <context-param>
+        <param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
+        <param-value>1</param-value>
+    </context-param>
+
+    <!--
+    Configura o nível de log do JSF para FINE, que é um nível detalhado de log. Isso pode ser útil para depuração,
+    pois fornece informações detalhadas sobre o funcionamento interno do JSF.
+    -->
+
+    <context-param>
+        <param-name>com.sun.faces.loggingLevel</param-name>
+        <param-value>FINE</param-value>
+    </context-param>
+
+    <!--
+    Define o servlet do Jakarta Faces (JSF). O nome do servlet é "Faces Servlet" e a classe que o implementa é
+    `jakarta.faces.webapp.FacesServlet`. O parâmetro `load-on-startup` com valor 1 indica que o servlet deve ser carregado
+    na inicialização da aplicação, garantindo que o JSF esteja pronto para processar requisições desde o início.
+    -->
+
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>jakarta.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!--
+    Mapeia o servlet do Jakarta Faces (JSF) para URLs que terminam com ".xhtml". Isso significa que todas as requisições
+    para páginas com a extensão ".xhtml" serão tratadas pelo "Faces Servlet", permitindo que o JSF processe essas páginas.
+    -->
+
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+</web-app>

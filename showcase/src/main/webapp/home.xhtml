@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      lang="pt-BR"
+      xml:lang="pt-BR"
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>New File - JSF</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h:panelGroup layout="block" styleClass="header">
+            <h1>Generic Template - JSF</h1>
+        </h:panelGroup>
+
+        <!-- Global messages for the form -->
+        <h:messages showDetail="true" showSummary="true" globalOnly="true"
+                    styleClass="form-messages" errorClass="error"
+                    infoClass="info" warnClass="warn" fatalClass="fatal"/>
+
+        <!-- Content placeholder -->
+        <h:panelGroup layout="block" styleClass="content">
+            <ui:insert name="content">
+                <h:outputText value="Default content goes here."/>
+            </ui:insert>
+        </h:panelGroup>
+
+        <h:panelGroup layout="block" styleClass="footer">
+            <h:outputText value="Footer content goes here."/>
+        </h:panelGroup>
+    </h:form>
+    <p:spinner/>
+</h:body>
+</html>
