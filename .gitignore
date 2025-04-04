@@ -1,3 +1,17 @@
+target/
+*/.mvn
+*/mvnw*
+*/.gitignore
+
+### IntelliJ IDEA ###
+.idea
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
 # Compiled class file
 *.class
 
